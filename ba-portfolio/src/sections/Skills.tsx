@@ -142,7 +142,7 @@ const skillCategories: SkillCategory[] = [
 const Skills = () => {
   return (
     <SectionWrapper id="skills">
-      <div className="min-h-screen flex flex-col items-center justify-center">
+      <div className="flex-col items-center justify-center">
 
         {/* Section Title */}
         <h2 className="text-4xl font-bold mb-16 text-center text-[#0F172A]">

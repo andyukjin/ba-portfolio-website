@@ -34,21 +34,21 @@ const Sidebar = () => {
   return (
     <aside
       className="
-        fixed
-        left-6
-        top-1/2
-        -translate-y-1/2
-        w-72
-        min-h-[480px]
-        max-h-[70vh]
-        bg-sidebar
-        rounded-2xl
-        shadow-xl
-        flex
-        flex-col
-        px-6
-        py-8
-      "
+    fixed
+    left-6
+    top-1/2
+    -translate-y-1/2
+    w-72
+    min-h-[480px]
+    max-h-[70vh]
+    bg-[#77CBDA]
+    rounded-2xl
+    shadow-xl
+    flex
+    flex-col
+    px-6
+    py-8
+  "
     >
       {/* Name / Role */}
       <div className="mb-8">
@@ -57,7 +57,8 @@ const Sidebar = () => {
         </h1>
         <p className="text-base mt-2 text-slate-700 leading-snug">
           Business Analyst <br />
-          Business × Technology
+          Info sys/Comp Sci Graduate <br />
+          University of New South Whales
         </p>
       </div>
 

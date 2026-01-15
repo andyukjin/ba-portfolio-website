@@ -10,10 +10,12 @@ const SectionWrapper = ({ id, title, children }: Props) => {
   return (
     <section
       id={id}
-      className="min-h-screen px-12 py-20 text-primaryText"
+      className="px-12 text-primaryText"
     >
       {title && (
-        <h2 className="text-3xl font-bold mb-10">{title}</h2>
+        <h2 className="text-4xl font-bold mb-12 text-[#0F172A] text-center">
+          {title}
+        </h2>
       )}
       {children}
     </section>

@@ -73,8 +73,7 @@ html {
 }
 
 body {
-  margin: 0;
-  background: linear-gradient(to bottom, #b3ebf2, #ffffff);
-  font-family: system-ui, -apple-system, BlinkMacSystemFont,
-    "Segoe UI", sans-serif;
+  background: linear-gradient(to bottom,
+      #B3EBF2 0%,
+      #ffffff 60%);
 }
