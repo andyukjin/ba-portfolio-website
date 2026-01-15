@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import SectionWrapper from "../components/SectionWrapper";
 
 type Skill = {
@@ -139,50 +140,79 @@ const skillCategories: SkillCategory[] = [
   },
 ];
 
+const STORAGE_KEY = "skills_active_index";
+
 const Skills = () => {
+  // ✅ index로 관리 (더 안정적)
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
+
+  // ✅ (선택) 새로고침해도 유지
+  useEffect(() => {
+    const saved = localStorage.getItem(STORAGE_KEY);
+    if (saved !== null) setActiveIndex(Number(saved));
+  }, []);
+
+  useEffect(() => {
+    if (activeIndex === null) localStorage.removeItem(STORAGE_KEY);
+    else localStorage.setItem(STORAGE_KEY, String(activeIndex));
+  }, [activeIndex]);
+
   return (
     <SectionWrapper id="skills">
-      <div className="flex-col items-center justify-center">
-
-        {/* Section Title */}
+      <div className="py-20 flex flex-col items-center">
         <h2 className="text-4xl font-bold mb-16 text-center text-[#0F172A]">
           Skills
         </h2>
 
-        {/* Skills Content */}
         <div className="space-y-12 max-w-6xl w-full">
-          {skillCategories.map((category) => (
-            <div
-              key={category.title}
-              className="border border-slate-200 rounded-xl p-8 bg-white/70 text-left"
-            >
-              <h3 className="text-2xl font-bold mb-2">
-                {category.title}
-              </h3>
+          {skillCategories.map((category, idx) => {
+            const isActive = activeIndex === idx;
 
-              <p className="mb-6 text-slate-600 max-w-3xl">
-                {category.description}
-              </p>
+            return (
+              <div
+                key={category.title}
+                role="button"
+                tabIndex={0}
+                onClick={() => setActiveIndex(idx)}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" || e.key === " ") setActiveIndex(idx);
+                }}
+                className={`
+                  cursor-pointer
+                  rounded-xl
+                  p-8
+                  text-left
+                  transition
+                  hover:shadow-md
+                  hover:-translate-y-0.5
+                  ${isActive ? "bg-blue-50 ring-2 ring-blue-500 shadow-md" : "bg-white/70 border border-slate-200"}
+                  focus:outline-none
+                `}
+              >
+                <h3 className={`text-2xl font-bold mb-2 transition ${isActive ? "text-blue-700" : "text-[#0F172A]"}`}>
+                  {category.title}
+                </h3>
 
-              <ul className="space-y-4">
-                {category.skills.map((skill) => (
-                  <li key={skill.name}>
-                    <p className="font-semibold">
-                      {skill.name}
-                    </p>
-                    <p className="text-slate-700 leading-relaxed">
-                      {skill.usage}
-                    </p>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+                <p className="mb-6 text-slate-600 max-w-3xl">
+                  {category.description}
+                </p>
+
+                <ul className="space-y-4">
+                  {category.skills.map((skill) => (
+                    <li key={skill.name}>
+                      <p className="font-semibold">{skill.name}</p>
+                      <p className="text-slate-700 leading-relaxed">
+                        {skill.usage}
+                      </p>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            );
+          })}
         </div>
-
       </div>
     </SectionWrapper>
-
   );
 };
 
