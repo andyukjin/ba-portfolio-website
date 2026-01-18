@@ -34,7 +34,7 @@ const About = () => {
 
           {/* About Paragraph */}
           <p className="text-lg leading-relaxed text-slate-700 text-left w-full mb-10">
-            I am an upcoming Business Analyst with a strong foundation in both
+            I am a university graduate with a strong foundation in both
             business and technology. I enjoy working at the intersection of
             data, systems, and process improvement to transform ambiguous
             business problems into clear, structured, and actionable solutions.
