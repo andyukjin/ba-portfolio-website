@@ -1,7 +1,7 @@
 import SectionWrapper from "../components/SectionWrapper";
 
 // Project Images
-import tableauImg from "../assets/tableau.png";
+import tableauImg from "../assets/table-au.png";
 import powerbiImg from "../assets/PowerBI.png";
 import websiteImg from "../assets/website.png";
 import happyCityImg from "../assets/HAPPY CITY.png";
