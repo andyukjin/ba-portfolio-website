@@ -76,19 +76,27 @@ It allows visitors to quickly understand who I am, what I can do, and what I’v
 
 src/
 ├── components/
-│ ├── Sidebar.tsx
-│ └── SectionWrapper.tsx
-├── sections/
-│ ├── About.tsx
-│ ├── Skills.tsx
-│ ├── Portfolio.tsx
-│ ├── Experience.tsx
-│ └── Contact.tsx
-├── App.tsx
-├── main.tsx
-└── index.css
 
-yaml
-Copy code
+│ ├── Sidebar.tsx
+
+│ └── SectionWrapper.tsx
+
+├── sections/
+
+│ ├── About.tsx
+
+│ ├── Skills.tsx
+
+│ ├── Portfolio.tsx
+
+│ ├── Experience.tsx
+
+│ └── Contact.tsx
+
+├── App.tsx
+
+├── main.tsx
+
+└── index.css
 
 ---
