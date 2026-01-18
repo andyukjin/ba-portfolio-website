@@ -70,10 +70,29 @@ button:focus-visible {
 
 html {
   scroll-behavior: smooth;
+
+  cursor: url("/cursor-default.png") 16 16, auto;
 }
 
 body {
   background: linear-gradient(to bottom,
       #B3EBF2 0%,
       #ffffff 60%);
+}
+
+a,
+button,
+[role="button"],
+.cursor-pointer {
+  cursor: url("/cursor-pointer.png") 16 16, pointer;
+}
+
+@layer utilities {
+  .cursor-custom {
+    cursor: url("/cursor-default.png") 16 16, auto;
+  }
+
+  .cursor-custom-pointer {
+    cursor: url("/cursor-pointer.png") 16 16, pointer;
+  }
 }
