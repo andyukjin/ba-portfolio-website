@@ -75,6 +75,7 @@ It allows visitors to quickly understand who I am, what I can do, and what I’v
 ## 📁 Project Structure (Simplified)
 
 src/
+
 ├── components/
 
 │ ├── Sidebar.tsx

@@ -1,34 +1,81 @@
 import SectionWrapper from "../components/SectionWrapper";
-import airbrbImg from "../assets/airbrb.png";
-import powerbiImg from "../assets/PowerBI.png";
 
+// Project Images
+import tableauImg from "../assets/tableau.png";
+import powerbiImg from "../assets/PowerBI.png";
+import websiteImg from "../assets/website.png";
+import happyCityImg from "../assets/HAPPY CITY.png";
+import airbrbImg from "../assets/airbrb.png";
+
+// Certificates Images
 import itilImg from "../assets/ITIL.png";
 import psmImg from "../assets/PSM.png";
 import sqlImg from "../assets/SQL.png";
 
+// Certificates PDFs
 import itilPdf from "../assets/ITIL.pdf";
 import psmPdf from "../assets/PSM.pdf";
 import sqlPdf from "../assets/SQL.pdf";
 
-const projects = [
+// Happy City PDF
+import happyCityPdf from "../assets/HAPPY CITY.pdf";
+
+/* =======================
+   TOP FEATURED PROJECTS
+======================= */
+const featuredProjects = [
   {
-    title: "Airbrb – Full-Stack Web Application",
+    title: "SQL & Tableau – Data Analytics Project",
     description:
-      "A React-based accommodation booking platform focusing on user flows, authentication, and clean UI design.",
-    image: airbrbImg,
-    link: "https://airbrb-deploy-blush.vercel.app/login",
-    tag: "Web Application",
+      "End-to-end analytics project using SQL for data cleaning and modeling, and Tableau for interactive dashboards and insights.",
+    image: tableauImg,
+    link: "https://github.com/andyukjin/SQL_tableau_project",
+    tag: "Data & Analytics",
   },
   {
     title: "PostgreSQL & Power BI – Data Analytics Project",
     description:
-      "End-to-end data analytics project using PostgreSQL for data modeling and Power BI for interactive dashboards and business insights.",
+      "Designed relational data models in PostgreSQL and built Power BI dashboards to support business decision-making.",
     image: powerbiImg,
     link: "https://github.com/andyukjin/PostgreSQL_PowerBI_Project",
     tag: "Data & Analytics",
   },
 ];
 
+/* =======================
+   OTHER PROJECTS
+======================= */
+const otherProjects = [
+  {
+    title: "Portfolio Website",
+    description:
+      "Personal portfolio website built with React, TypeScript, and Tailwind CSS to showcase business analysis and analytics projects.",
+    image: websiteImg,
+    link: "https://github.com/andyukjin/ba-portfolio-website",
+    tag: "Web Application",
+  },
+  {
+    title: "Happy City Index Researcher",
+    description:
+      "Research contribution analysing city-level wellbeing indicators using structured data collection and validation.",
+    image: happyCityImg,
+    link: happyCityPdf,
+    tag: "Research",
+    download: true,
+  },
+  {
+    title: "Airbrb – Full-Stack Web Application",
+    description:
+      "A React-based accommodation booking platform focusing on authentication, user flows, and clean UI design.",
+    image: airbrbImg,
+    link: "https://airbrb-deploy-blush.vercel.app/login",
+    tag: "Web Application",
+  },
+];
+
+/* =======================
+   CERTIFICATIONS
+======================= */
 const certifications = [
   {
     name: "ITIL 4 Foundation",
@@ -57,9 +104,11 @@ const Portfolio = () => {
           Portfolio
         </h2>
 
-        {/* Projects */}
+        {/* =======================
+            FEATURED PROJECTS
+        ======================= */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-6xl w-full mb-24">
-          {projects.map((project) => (
+          {featuredProjects.map((project) => (
             <a
               key={project.title}
               href={project.link}
@@ -67,7 +116,6 @@ const Portfolio = () => {
               rel="noopener noreferrer"
               className="group rounded-2xl border border-slate-200 bg-white/70 overflow-hidden shadow-sm hover:shadow-md transition-shadow"
             >
-              {/* Image */}
               <div className="overflow-hidden">
                 <img
                   src={project.image}
@@ -76,7 +124,6 @@ const Portfolio = () => {
                 />
               </div>
 
-              {/* Content */}
               <div className="p-6 text-left">
                 <span className="text-sm font-medium text-slate-500">
                   {project.tag}
@@ -94,7 +141,47 @@ const Portfolio = () => {
           ))}
         </div>
 
-        {/* Certifications */}
+        {/* =======================
+            OTHER PROJECTS
+        ======================= */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-6xl w-full mb-28">
+          {otherProjects.map((project) => (
+            <a
+              key={project.title}
+              href={project.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              download={project.download}
+              className="group rounded-2xl border border-slate-200 bg-white/70 overflow-hidden shadow-sm hover:shadow-md transition-shadow"
+            >
+              <div className="overflow-hidden">
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+              </div>
+
+              <div className="p-6 text-left">
+                <span className="text-sm font-medium text-slate-500">
+                  {project.tag}
+                </span>
+
+                <h3 className="text-lg font-bold mt-2 mb-2 text-[#0F172A]">
+                  {project.title}
+                </h3>
+
+                <p className="text-slate-700 leading-relaxed text-sm">
+                  {project.description}
+                </p>
+              </div>
+            </a>
+          ))}
+        </div>
+
+        {/* =======================
+            CERTIFICATIONS
+        ======================= */}
         <div className="max-w-6xl w-full">
           <h3 className="text-3xl font-bold mb-10 text-[#0F172A] text-center">
             Certifications
@@ -109,7 +196,6 @@ const Portfolio = () => {
                 rel="noopener noreferrer"
                 className="group rounded-xl border border-slate-200 bg-white/70 overflow-hidden shadow-sm hover:shadow-md transition-shadow"
               >
-                {/* Certificate Preview */}
                 <div className="overflow-hidden">
                   <img
                     src={cert.image}
@@ -118,7 +204,6 @@ const Portfolio = () => {
                   />
                 </div>
 
-                {/* Label */}
                 <div className="p-4 text-center">
                   <p className="font-semibold text-[#0F172A]">
                     {cert.name}
